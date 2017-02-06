@@ -12,5 +12,6 @@ engine:
 volume:
   driver: {}
 
-images: []
+images: 
+  default: alpine:latest
 containers: {}
