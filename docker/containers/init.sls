@@ -21,7 +21,7 @@ container_{{ name }}:
     - {{ opt }}: {{ vals }}
     {% endfor %}
     - require:
-      - dockerng: {{ opts.image }}
+      # - dockerng: {{ opts.image }}
       - pip: dockerng_requirements
       - service: docker-engine-service
 {% endfor %}
