@@ -12,7 +12,7 @@ engine:
 volume:
   driver: {}
 
-images: []
-images_force: []
+images: {}
+images_force: {}
 
 containers: {}
