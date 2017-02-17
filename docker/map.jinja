@@ -97,4 +97,5 @@
 {% set compose = salt['pillar.get']('docker:lookup:compose', default=defaults.compose, merge=true) %}
 {% set volume = salt['pillar.get']('docker:lookup:volume', default=defaults.volume, merge=true) %}
 {% set images = salt['pillar.get']('docker:lookup:images', default=defaults.images, merge=true) %}
+{% set images_force = salt['pillar.get']('docker:lookup:images_force', default=defaults.images_force, merge=true) %}
 {% set containers = salt['pillar.get']('docker:lookup:containers', default=defaults.containers, merge=true) %}
