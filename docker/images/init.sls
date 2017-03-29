@@ -5,8 +5,9 @@ include:
   - docker.images.prereqs
 
 {% for image in images_force %}
-{{ image }}:
+{{ image }}_force:
   dockerng.image_present:
+    - name: {{ image }}
     - force: True
     - require:
       - service: docker-engine-service
