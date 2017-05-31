@@ -14,7 +14,7 @@ docker_chain_filter:
     - table: 'filter'
 
 {% for name, opts in containers.items() %}
-{% if stop_signal not in opts %}
+{% if 'stop_signal' not in opts %}
 {% do opts.update('stop_signal','SIGTERM') %}
 {% endif %}
 container_{{ name }}:
