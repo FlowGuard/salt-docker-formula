@@ -4,3 +4,4 @@
 include:
   - docker.engine.install
   - docker.engine.users
+  - docker.engine.logrotate
