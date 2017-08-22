@@ -18,7 +18,7 @@ docker_chain_filter:
 {% do opts.update({'stop_signal': 'SIGTERM'}) %}
 {% endif %}
 container_{{ name }}:
-  dockerng.running:
+  docker_container.running:
     - name: {{ name }}
     {% for opt, vals in opts.items() %}
     - {{ opt }}: {{ vals }}

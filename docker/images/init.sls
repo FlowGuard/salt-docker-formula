@@ -9,7 +9,7 @@ include:
 {% if image not in updated_images %}
 {% do updated_images.update({image: true}) %}
 Force {{ image }}:
-  dockerng.image_present:
+  docker_image.present:
     - name: {{ image }}
     - force: True
     - require:
@@ -22,7 +22,7 @@ Force {{ image }}:
 {% if image not in updated_images %}
 {% do updated_images.update({image: true}) %}
 {{ image }}:
-  dockerng.image_present:
+  docker_image.present:
     - force: False
     - require:
       - service: docker-engine-service
