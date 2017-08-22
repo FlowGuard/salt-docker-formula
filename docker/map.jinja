@@ -21,7 +21,7 @@
   {% set repo_key_url = 'https://' ~ keyserver ~ '/pks/lookup?op=get&search=' ~ cs_keyid %}
 
   {% if salt['grains.get']('os_family') == 'Debian' %}
-    {% set repo_distrib = salt['grains.get']('os')|lower ~ '-' ~ salt['grains.get']('oscodename')|lower  %}
+    {% set repo_distrib = salt['grains.get']('os')|lower ~ '-' ~ salt['grains.get']('oscodename')|string|lower  %}
     {% set repo_name = 'deb ' ~ repo_base_path ~ '/apt/repo '  ~ repo_distrib ~ ' main' %}
     {% set tmp_os_defaults = {
       'pkg': {
@@ -30,7 +30,7 @@
       }
     } %}
   {% elif salt['grains.get']('os_family') == 'RedHat' %}
-    {% set repo_name = repo_base_path ~ '/yum/repo/main/centos/' ~ salt['grains.get']('osmajorrelease')|lower %}
+    {% set repo_name = repo_base_path ~ '/yum/repo/main/centos/' ~ salt['grains.get']('osmajorrelease')|string|lower %}
     {% set tmp_os_defaults = {
       'pkg': {
         'source': repo_name,
@@ -61,11 +61,11 @@
     {% set repo_os = salt['grains.get']('os')|lower %}
 
     {% if repo_os in ['centos', 'redhat'] %}
-      {% set repo_name = repo_base_path ~ 'centos/' ~ salt['grains.get']('osmajorrelease')|lower %}
+      {% set repo_name = repo_base_path ~ 'centos/' ~ salt['grains.get']('osmajorrelease')|string|lower %}
     {% elif repo_os == 'fedora' %}
-      {% set repo_name = repo_base_path ~ 'fedora/' ~ salt['grains.get']('osmajorrelease')|lower %}
+      {% set repo_name = repo_base_path ~ 'fedora/' ~ salt['grains.get']('osmajorrelease')|string|lower %}
     {% elif repo_os == 'oel' %}
-      {% set repo_name = repo_base_path ~ 'oraclelinux/' ~ salt['grains.get']('osmajorrelease')|lower %}
+      {% set repo_name = repo_base_path ~ 'oraclelinux/' ~ salt['grains.get']('osmajorrelease')|string|lower %}
     {% endif %}
 
     {% set tmp_os_defaults = {
