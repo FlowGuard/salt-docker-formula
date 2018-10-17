@@ -48,7 +48,7 @@
   {% if salt['grains.get']('os_family') == 'Debian' %}
     {% set repo_base_path = 'https://download.docker.com/linux/ubuntu' %}
     {% set repo_distrib =  salt['grains.get']('oscodename')|lower %}
-    {% set repo_name = 'deb ' ~ repo_base_path ~ ' ' ~ repo_distrib ~ ' main' %}
+    {% set repo_name = 'deb ' ~ repo_base_path ~ ' ' ~ repo_distrib ~ ' stable' %}
     {% set tmp_os_defaults = {
       'pkg': {
         'source': repo_name,
