@@ -46,7 +46,7 @@
   {% set repo_key_url = 'https://' ~ keyserver ~ '/pks/lookup?op=get&search=' ~ os_keyid %}
 
   {% if salt['grains.get']('os_family') == 'Debian' %}
-    {% set repo_base_path = 'https://apt.dockerproject.org/repo' %}
+    {% set repo_base_path = 'https://download.docker.com/linux/ubuntu' %}
     {% set repo_distrib =  salt['grains.get']('os')|lower ~ '-' ~ salt['grains.get']('oscodename')|lower %}
     {% set repo_name = 'deb ' ~ repo_base_path ~ ' ' ~ repo_distrib ~ ' main' %}
     {% set tmp_os_defaults = {
