@@ -80,7 +80,7 @@
 
 
 {% set provider = salt['test.provider']('service')|lower %}
-{% if provider == 'systemd' %}
+{% if provider == 'systemd' or provider == 'systemd_service' %}
   {% do salt['slsutil.update'](os_defaults, {'opts_type' : 'systemd'}) %}
 {% elif provider in [ 'upstart', 'debian_service' ] %}
   {% do salt['slsutil.update'](os_defaults, {'opts_type' : 'sysvinit'}) %}
